@@ -1,0 +1,191 @@
+{
+    "lote":"2026-11-30",
+    "fecha_generacion":"2026-10-28",
+    "Responsable":"Karolina Acosta",
+    "novedades":
+[
+    {
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1023456789",
+"nombres":"Maria",
+"apellidos":"Pena Ortiz",
+"fecha_efectiva":"2026-11-05",
+"cargo":"ANL-01",
+"centro_costo":"CC-1040",
+"telefono":"3001234567",
+"observaciones":"Ingreso programado para el 05/11/2026"
+    },
+   {
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1034567890",
+"nombres":"José",
+"apellidos":"Muñoz Lopez",
+"fecha_efectiva":"2026-11-10",
+"cargo":"DES-01",
+"centro_costo":"CC-1040",
+"telefono":"3108678723",
+"observaciones":"Ingreso Nuevo"
+    },{
+"tipo":"CAMBIO_CARGO",
+"tipo_documento":"CC",
+"numero_documento":"1067890234",
+"fecha_efectiva":"2026-11-12",
+"cargo":"ANL-02",
+"centro_costo":"CC-1040",
+"observaciones":"Cambio aprobado"
+    },{
+"tipo":"TRASLADO",
+"tipo_documento":"CC",
+"numero_documento":"1002345678",
+"fecha_efectiva":"2026-11-15",
+"centro_costo":"CC-1050",
+"observaciones":"Traslado de area"
+    },{
+"tipo":"RETIRO",
+"tipo_documento":"CC",
+"numero_documento":"10012345676",
+"fecha_efectiva":"2026-11-20",
+"observaciones":"Retiro programado"
+    },{
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1069282003",
+"nombres":"Dora",
+"apellidos":"Garzón Peñaralta",
+"fecha_efectiva":"2026-11-26",
+"cargo":"ADM-01",
+"centro_costo":"CC-3010",
+"telefono":"324 589 13 09",
+"observaciones":"Ingreso programado para el 2026-12-30"
+    },{
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1078903303",
+"nombres":"Dora",
+"apellidos":"GARZON Estupiñan",
+"fecha_efectiva":"2026-11-30",
+"cargo":"ADM-02",
+"centro_costo":"CC-3030",
+"telefono":"(320) 304 0940",
+"observaciones":"Ingreso para el 28-12-2026"
+    },{
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1045789094",
+"nombres":"DORA",
+"apellidos":"GARZON MARTINEZ",
+"fecha_efectiva":"2026-11-20",
+"cargo":"ADM-04",
+"centro_costo":"CC-3020",
+"telefono":"315 - 0909-302",
+"observaciones":"Ingreso programado para el 15-12-2026"
+    },{
+"tipo":"RETIRO",
+"tipo_documento":"CE",
+"numero_documento":"B10762899",
+"fecha_efectiva":"2026-11-11"
+    },{
+"tipo":"ALTA",
+"tipo_documento":"PA",
+"numero_documento":"10689T09010",
+"nombres":"Mario",
+"apellidos":"Benedetti Perez",
+"fecha_efectiva":"2026-11-20",
+"cargo":"",
+"centro_costo":"CC-1090",
+"telefono":"(601) -0987-0977",
+"observaciones":"Ingreso programado para 2026-11-25"
+    },{
+"tipo":"TRASLADO",
+"tipo_documento":"PA",
+"numero_documento":"1234D59903",
+"fecha_efectiva":"2026-11-20",
+"centro_costo":""
+    },{
+"tipo":"RETIRO",
+"tipo_documento":"CC",
+"numero_documento":"B109022992",
+"nombres":"Pedro",
+"apellidos":"Hernandez Paez",
+"fecha_efectiva":"2026-12-10",
+"cargo":"DES-03",
+"centro_costo":"CC-1060",
+"telefono":"(603) - 0987-345"
+    },
+    {
+"tipo":"CAMBIO_CARGO",
+"tipo_documento":"CE",
+"numero_documento":"A1069",
+"nombres":"Mario",
+"apellidos":"Fernandez Ortiz",
+"fecha_efectiva":"2026-11-01",
+"cargo":"GER-02",
+"centro_costo":"CC-1100",
+"telefono":"(608) 0988 093",
+"observaciones":"Cambio aprobado por administracion"
+    },
+    {
+"tipo":"RETIRO",
+"tipo_documento":"PA",
+"numero_documento":"K1069282201",
+"nombres":"Diana",
+"apellidos":"Acosta Romero",
+"fecha_efectiva":"2026-11-02",
+"cargo":"ANL-01",
+"centro_costo":"CC-2040",
+"telefono":"321 930 9832"
+    },
+    {
+"tipo":"CAMBIO_CARGO",
+"tipo_documento":"CC",
+"numero_documento":"10240989",
+"fecha_efectiva":"2026-11-09",
+"cargo":"CON-03",
+"centro_costo":"CC-3010",
+"observaciones":"Usuario se tralada de equipo Fecha aproximada 2026-12-09"
+    },
+    {
+"tipo":"TRASLADO",
+"numero_documento":"n29890012",
+"nombres":"Nicolas",
+"apellidos":"Suarez Nuñes",
+"fecha_efectiva":"2026-12-01",
+"cargo":"CON-01",
+"centro_costo":"CC-2020"
+    },
+    {
+"tipo":"TRASLADO",
+"tipo_documento":"PA",
+"numero_documento":"8787JL99",
+"fecha_efectiva":"2026-10-20",
+"cargo":"",
+"centro_costo":"CC-1070",
+"telefono":"(601) -0988 -445",
+"observaciones":"Traslado previo 2026-11-11 y desvinculacion estimada 2026-12-10"
+    },
+    {
+"tipo":"retiro",
+"tipo_documento":"CE",
+"numero_documento":"A1076882",
+"fecha_efectiva":"2026-12-27",
+"cargo":"ANL-04",
+"centro_costo":"CC-2590",
+"telefono":"321-9003-930",
+"observaciones":"Retiro programado para el 20-12-2026 , reintegro 10-01-2027 y traslado de area programado para el 15-01-2027"
+    },
+     {
+"tipo":"ALTA",
+"tipo_documento":"CC",
+"numero_documento":"1074414809",
+"nombres":"Leonardo",
+"apellidos":"Calderon NUÑEZ",
+"fecha_efectiva":"2027-03-01",
+"cargo":"ADM-03",
+"centro_costo":"CC-3030",
+"telefono":"321983033",
+"observaciones":"Reingreso el 2027-04-01"
+    }
+]
+}
