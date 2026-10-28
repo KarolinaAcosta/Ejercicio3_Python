@@ -5,6 +5,7 @@
     "novedades":
 [
     {
+"consecutivo":1,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1023456789",
@@ -17,6 +18,7 @@
 "observaciones":"Ingreso programado para el 05/11/2026"
     },
    {
+"consecutivo":2,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1034567890",
@@ -28,6 +30,7 @@
 "telefono":"3108678723",
 "observaciones":"Ingreso Nuevo"
     },{
+"consecutivo":3,
 "tipo":"CAMBIO_CARGO",
 "tipo_documento":"CC",
 "numero_documento":"1067890234",
@@ -36,6 +39,7 @@
 "centro_costo":"CC-1040",
 "observaciones":"Cambio aprobado"
     },{
+"consecutivo":4,
 "tipo":"TRASLADO",
 "tipo_documento":"CC",
 "numero_documento":"1002345678",
@@ -43,12 +47,14 @@
 "centro_costo":"CC-1050",
 "observaciones":"Traslado de area"
     },{
+"consecutivo":5,
 "tipo":"RETIRO",
 "tipo_documento":"CC",
 "numero_documento":"10012345676",
 "fecha_efectiva":"2026-11-20",
 "observaciones":"Retiro programado"
     },{
+"consecutivo":6,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1069282003",
@@ -60,6 +66,7 @@
 "telefono":"324 589 13 09",
 "observaciones":"Ingreso programado para el 2026-12-30"
     },{
+"consecutivo":7,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1078903303",
@@ -71,6 +78,7 @@
 "telefono":"(320) 304 0940",
 "observaciones":"Ingreso para el 28-12-2026"
     },{
+"consecutivo":8,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1045789094",
@@ -82,11 +90,13 @@
 "telefono":"315 - 0909-302",
 "observaciones":"Ingreso programado para el 15-12-2026"
     },{
+"consecutivo":9,
 "tipo":"RETIRO",
 "tipo_documento":"CE",
 "numero_documento":"B10762899",
 "fecha_efectiva":"2026-11-11"
     },{
+"consecutivo":10,
 "tipo":"ALTA",
 "tipo_documento":"PA",
 "numero_documento":"10689T09010",
@@ -98,12 +108,14 @@
 "telefono":"(601) -0987-0977",
 "observaciones":"Ingreso programado para 2026-11-25"
     },{
+"consecutivo":11,
 "tipo":"TRASLADO",
 "tipo_documento":"PA",
 "numero_documento":"1234D59903",
 "fecha_efectiva":"2026-11-20",
 "centro_costo":""
     },{
+"consecutivo":12,
 "tipo":"RETIRO",
 "tipo_documento":"CC",
 "numero_documento":"B109022992",
@@ -115,6 +127,7 @@
 "telefono":"(603) - 0987-345"
     },
     {
+"consecutivo":13,
 "tipo":"CAMBIO_CARGO",
 "tipo_documento":"CE",
 "numero_documento":"A1069",
@@ -127,6 +140,7 @@
 "observaciones":"Cambio aprobado por administracion"
     },
     {
+"consecutivo":14,
 "tipo":"RETIRO",
 "tipo_documento":"PA",
 "numero_documento":"K1069282201",
@@ -138,6 +152,7 @@
 "telefono":"321 930 9832"
     },
     {
+"consecutivo":15,
 "tipo":"CAMBIO_CARGO",
 "tipo_documento":"CC",
 "numero_documento":"10240989",
@@ -147,6 +162,7 @@
 "observaciones":"Usuario se tralada de equipo Fecha aproximada 2026-12-09"
     },
     {
+"consecutivo":16,
 "tipo":"TRASLADO",
 "numero_documento":"n29890012",
 "nombres":"Nicolas",
@@ -156,6 +172,7 @@
 "centro_costo":"CC-2020"
     },
     {
+"consecutivo":17,
 "tipo":"TRASLADO",
 "tipo_documento":"PA",
 "numero_documento":"8787JL99",
@@ -166,6 +183,7 @@
 "observaciones":"Traslado previo 2026-11-11 y desvinculacion estimada 2026-12-10"
     },
     {
+"consecutivo":18,
 "tipo":"retiro",
 "tipo_documento":"CE",
 "numero_documento":"A1076882",
@@ -176,6 +194,7 @@
 "observaciones":"Retiro programado para el 20-12-2026 , reintegro 10-01-2027 y traslado de area programado para el 15-01-2027"
     },
      {
+"consecutivo":19,
 "tipo":"ALTA",
 "tipo_documento":"CC",
 "numero_documento":"1074414809",
