@@ -105,7 +105,8 @@ def validar_novedad(novedad, configuracion):
             str(fila.get("codigo", "")).strip() == centro
             for fila in configuracion.get("centros_costo", [])
         ):
-            errores.append("El centro de costo no existe.")
+            errores.append(
+                f"El centro de costos {centro} no existe en la configuracion.")
  
     fecha = convertir_fecha(novedad.get("fecha_efectiva", ""))
  

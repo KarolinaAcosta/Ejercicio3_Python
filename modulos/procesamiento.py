@@ -52,21 +52,39 @@ def procesar_novedades(datos, configuracion):
  
     for novedad in datos.get("novedades", []):
         novedad = novedad.copy()
+
+        tipo = str(
+            novedad.get("tipo_novedad",novedad.get("tipo",""))
+        ).strip().upper()
+
+        centro = str(
+            novedad.get("centro_costos",novedad.get("centro_costo",""))or""
+        ).strip()
+
+        novedad["tipo"]=tipo
+        novedad["centro_costo"]=centro
  
         if "tipo" not in novedad:
             novedad["tipo"] = novedad.get("tipo_novedad", "")
  
         if "centro_costo" not in novedad:
             novedad["centro_costo"] = novedad.get("centro_costos", "")
- 
-        tipo = str(novedad.get("tipo", "")).strip().upper()
- 
+
         nombres = normalizar_texto(novedad.get("nombres", ""))
         apellidos = normalizar_texto(novedad.get("apellidos", ""))
         documento = novedad.get("numero_documento", "")
+        
+        nombre_completo = (nombres + " " + apellidos).strip()
+        
+        errores = validar_novedad(novedad, configuracion)
  
         nombre_completo = (nombres + " " + apellidos).strip()
         errores = validar_novedad(novedad, configuracion)
+        print("TIPO:", novedad.get("tipo"))
+        print("CARGO:", novedad.get("cargo"))
+        print("CENTRO:", novedad.get("centro_costo"))
+        print("ERRORES:", errores)
+        print("-" * 40)
  
         if errores:
             rechazados.append({
@@ -82,15 +100,15 @@ def procesar_novedades(datos, configuracion):
             continue
  
         cargo = str(novedad.get("cargo", "") or "").strip()
-        centro = str(novedad.get("centros_costo", "") or "").strip()
+        centro = str(novedad.get("centro_costo", "") or "").strip()
  
         fila_cargo = buscar_fila(
-            configuracion.get("Cargos", []),
-            "codigo_cargo", cargo
+         configuracion.get("cargos", []),
+         "codigo_cargo", cargo
         )
  
         fila_centro = buscar_fila(
-            configuracion.get("Centros_Costo", []),
+            configuracion.get("centros_costo", []),
             "codigo", centro
         )
  
@@ -118,7 +136,7 @@ def procesar_novedades(datos, configuracion):
  
             rol = None
  
-            for fila in configuracion.get("Matriz_Roles", []):
+            for fila in configuracion.get("matriz_roles", []):
                 if (
                     str(fila.get("codigo_cargo", "")).strip() == cargo
                     and str(fila.get("area", "")).strip() == area
