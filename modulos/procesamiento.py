@@ -2,6 +2,7 @@ import re
 import unicodedata
  
 from modulos.validacion import validar_novedad, convertir_fecha
+from modulos.excepciones import ErrorReglaNegocio, RegistroInvalido
  
  
 def normalizar_texto(texto):
@@ -90,8 +91,6 @@ def procesar_novedades(datos, configuracion):
         # Preparar el nombre para el reporte y validar los datos de entrada.
         nombre_completo = (nombres + " " + apellidos).strip()
         
-        errores = validar_novedad(novedad, configuracion)
- 
         nombre_completo = (nombres + " " + apellidos).strip()
         errores = validar_novedad(novedad, configuracion)
         print("TIPO:", novedad.get("tipo"))
@@ -101,7 +100,10 @@ def procesar_novedades(datos, configuracion):
         print("-" * 40)
  
         # Registrar los errores de validación y pasar a la siguiente novedad.
-        if errores:
+        try:
+            if errores:
+                raise RegistroInvalido("; ".join(errores))
+        except RegistroInvalido as error:
             rechazados.append({
                 "consecutivo": novedad.get("consecutivo", ""),
                 "tipo": tipo,
@@ -109,7 +111,7 @@ def procesar_novedades(datos, configuracion):
                 "nombre": nombre_completo,
                 "clasificacion": "VALIDACION",
                 "campo": "",
-                "motivo": "; ".join(errores),
+                "motivo": str(error),
                 "valor_recibido": ""
             })
             continue
@@ -140,6 +142,12 @@ def procesar_novedades(datos, configuracion):
         if cargo and tipo in ("ALTA", "CAMBIO_CARGO"):
             # Rechazar si el cargo y el centro de costo pertenecen a áreas distintas.
             if area and area_centro and area != area_centro:
+                try:
+                    raise ErrorReglaNegocio(
+                        "El area del cargo no coincide con el centro de costo."
+                    )
+                except ErrorReglaNegocio as error:
+                    motivo = str(error)
                 rechazados.append({
                     "consecutivo": novedad.get("consecutivo", ""),
                     "tipo": tipo,
@@ -147,7 +155,7 @@ def procesar_novedades(datos, configuracion):
                     "nombre": nombre_completo,
                     "clasificacion": "REGLA_NEGOCIO",
                     "campo": "centros_costo",
-                    "motivo": "El area del cargo no coincide con el centro de costo.",
+                    "motivo": motivo,
                     "valor_recibido": centro
                 })
                 continue
@@ -164,6 +172,12 @@ def procesar_novedades(datos, configuracion):
                     break
  
             if rol is None:
+                try:
+                    raise ErrorReglaNegocio(
+                        "No existe combinacion de cargo y area en la matriz de roles."
+                    )
+                except ErrorReglaNegocio as error:
+                    motivo = str(error)
                 rechazados.append({
                     "consecutivo": novedad.get("consecutivo", ""),
                     "tipo": tipo,
@@ -171,7 +185,7 @@ def procesar_novedades(datos, configuracion):
                     "nombre": nombre_completo,
                     "clasificacion": "REGLA_NEGOCIO",
                     "campo": "cargo",
-                    "motivo": "No existe combinacion de cargo y area en la matriz de roles.",
+                    "motivo": motivo,
                     "valor_recibido": cargo
                 })
                 continue

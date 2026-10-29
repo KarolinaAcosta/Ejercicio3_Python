@@ -1,10 +1,17 @@
 from openpyxl import Workbook
 from pathlib import Path
+
+from modulos.excepciones import ErrorEscritura
  
  
 def crear_reporte(aceptados, rechazados, colisiones):
     # Crear la carpeta de salida si no existe
-    Path("salida").mkdir(exist_ok=True)
+    try:
+        Path("salida").mkdir(exist_ok=True)
+    except OSError as error:
+        raise ErrorEscritura(
+            f"No fue posible crear la carpeta de salida: {error}"
+        ) from error
  
     # Crear un archivo Excel nuevo
     libro = Workbook()
@@ -66,7 +73,13 @@ def crear_reporte(aceptados, rechazados, colisiones):
  
     # Guardar el archivo
     ruta = Path("salida/carga_novedades.xlsx")
-    libro.save(ruta)
-    libro.close()
- 
+    try:
+        libro.save(ruta)
+    except Exception as error:
+        raise ErrorEscritura(
+            f"No fue posible guardar el reporte: {error}"
+        ) from error
+    finally:
+        libro.close()
+
     return ruta

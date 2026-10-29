@@ -33,13 +33,14 @@ Carpeta Módulos: Contiene 7 archivos:
 "configuracion.py": Se encarga de leer el archivo de parametros para poder identificar las columnas y filas del archivo
 adicionalmente, cuenta con la configuración para mandar los errores si el archivo correspondiente de parámetros no tiene
 los datos correspondientes.
-"excepciones.py": Cuenta con las clases donde se colocan el tipo de excepciones para cada caso dentro del proyecto.
-"lectura.py": Se encarga de leer el archivo JSON Con las novedades presentadas para la ejecucion del proyecto
+"excepciones.py": Define los errores de configuración, lectura, validación, reglas de negocio y escritura usados por el proyecto.
+"lectura.py": Lee el archivo JSON y genera ErrorArchivoEntrada si falta, no se puede leer o su estructura no es válida.
 "procesamiento.py": Se encarga del proceso interno y parte del proceso externo, donde se ejecutan las novedades, se validan
-cada una para verificar si cumplen con los requisitos correspondientes y dado el caso se envia mensaje de error para seguir
-con la ejecución. 
-"registro.py":Registra los eventos del programa con fecha, nivel y mensaje y al finalizar, guarda esos registros y un resumen en
-"reporte.py":genera un archivo Excel con las novedades aceptadas, rechazadas y las colisiones de correo.
+cada una para verificar si cumplen con los requisitos correspondientes; RegistroInvalido y ErrorReglaNegocio se convierten
+en rechazos individuales para que el procesamiento continúe.
+"registro.py": Registra los eventos del programa y usa ErrorEscritura si no puede guardar el archivo de log.
+"reporte.py": Genera un archivo Excel con las novedades aceptadas, rechazadas y las colisiones de correo; usa ErrorEscritura
+si no puede guardar el reporte.
 "validacion.py": Revisa que cada novedad tenga los datos requeridos y que sus valores sean válidos, comprueba documentos,
 centro de costo, fecha, teléfono y cargo; devuelve una lista con los errores encontrados.
 

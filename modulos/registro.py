@@ -1,6 +1,8 @@
 from openpyxl import Workbook
 from pathlib import Path
 from datetime import datetime
+
+from modulos.excepciones import ErrorEscritura
  
  
 eventos = []
@@ -19,7 +21,12 @@ def registrar(mensaje, nivel="INFO"):
  
 def guardar_registro():
     # Crear la carpeta de registros si no existe
-    Path("logs").mkdir(exist_ok=True)
+    try:
+        Path("logs").mkdir(exist_ok=True)
+    except OSError as error:
+        raise ErrorEscritura(
+            f"No fue posible crear la carpeta de registros: {error}"
+        ) from error
  
     libro = Workbook()
     hoja = libro.active
@@ -40,7 +47,13 @@ def guardar_registro():
     resumen.append(["Total de eventos", len(eventos)])
  
     ruta = Path("logs/log_ejecucion.xlsx")
-    libro.save(ruta)
-    libro.close()
- 
+    try:
+        libro.save(ruta)
+    except Exception as error:
+        raise ErrorEscritura(
+            f"No fue posible guardar el registro: {error}"
+        ) from error
+    finally:
+        libro.close()
+
     return ruta
