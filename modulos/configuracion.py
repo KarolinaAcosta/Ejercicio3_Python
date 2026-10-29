@@ -1,11 +1,11 @@
-from pathlib import Path
+from pathlib import Path 
 from openpyxl import load_workbook
  
 from modulos.excepciones import ErrorConfiguracion
  
  
 # Ubicación principal del proyecto.
-RUTA_PROYECTO = Path(__file__).resolve().parent.parent
+RUTA_PROYECTO = Path(__file__).resolve().parent.parent  # Sube dos niveles hasta la carpeta principal del proyecto.
  
 # Hojas que deben existir en el archivo Excel.
 HOJAS_REQUERIDAS = [
@@ -17,7 +17,7 @@ HOJAS_REQUERIDAS = [
 ]
  
  
-def leer_tabla(hoja, columnas_requeridas):
+def leer_tabla(hoja, columnas_requeridas): 
     """
     Lee una hoja de Excel y devuelve sus filas como una lista
     de diccionarios.
@@ -43,13 +43,13 @@ def leer_tabla(hoja, columnas_requeridas):
     registros = []
  
     # Leer las filas que contienen datos.
-    for fila in hoja.iter_rows(min_row=2, values_only=True):
+    for fila in hoja.iter_rows(min_row=2, values_only=True): # iter_rows recorre filas; min_row=2 empieza en la segunda y values_only devuelve valores.
  
         # Ignorar las filas completamente vacías.
         if all(valor is None for valor in fila):
             continue
  
-        registro = {}
+        registro = {}  # Se crea vacío y luego se agregan sus columnas y valores.
  
         # Relacionar cada encabezado con su valor.
         for indice, encabezado in enumerate(encabezados):
@@ -67,13 +67,13 @@ def cargar_configuracion(ruta_archivo=None):
     los parámetros y catálogos del proyecto.
     """
  
-    if ruta_archivo is None:
+    
+    if ruta_archivo is None: # Si no se proporciona una ruta (None), usar el Excel predeterminado del proyecto.
         ruta_archivo = (
             RUTA_PROYECTO / "config" / "parametros.xlsx"
         )
  
     libro = None
- 
     try:
         # Comprobar que el archivo exista.
         if not ruta_archivo.exists():
@@ -81,7 +81,7 @@ def cargar_configuracion(ruta_archivo=None):
                 f"No se encontró el archivo: {ruta_archivo}"
             )
  
-        # Abrir el Excel para leer sus valores.
+        # load_workbook abre el Excel y devuelve un objeto para acceder a sus hojas;
         libro = load_workbook(
             ruta_archivo,
             data_only=True,
@@ -106,14 +106,14 @@ def cargar_configuracion(ruta_archivo=None):
         for fila in parametros_lista:
             clave = fila["clave"]
  
-            if clave is None or str(clave).strip() == "":
+            if clave is None or str(clave).strip() == "": # Se rechaza si no hay valor o si, al quitar espacios, la clave queda vacía.
                 raise ErrorConfiguracion(
                     "Hay un parámetro sin clave."
                 )
  
             clave = str(clave).strip()
  
-            if clave in parametros:
+            if clave in parametros: # Si la clave ya existe en parametros, se informa que está repetida.
                 raise ErrorConfiguracion(
                     f"El parámetro '{clave}' está repetido."
                 )
@@ -154,17 +154,16 @@ def cargar_configuracion(ruta_archivo=None):
  
         except (ValueError, TypeError):
             raise ErrorConfiguracion(
-                "Los días máximos y la longitud del teléfono "
-                "deben ser números enteros."
+                "Los días máximos y la longitud del teléfono deben ser números enteros."
             )
  
-        # Leer el catálogo de cargos.
+        # Leer el archivo de cargos.
         cargos = leer_tabla(
             libro["cargos"],
             ["codigo_cargo", "nombre_cargo", "nivel", "area"]
         )
  
-        # Leer el catálogo de centros de costo.
+        # Leer el archivo de centros de costo.
         centros_costo = leer_tabla(
             libro["centros_costo"],
             ["codigo", "nombre", "area"]

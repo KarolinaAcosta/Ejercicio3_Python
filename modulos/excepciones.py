@@ -1,3 +1,5 @@
+#Se definen las clases con los errores posibles en el proyecto
+
 class ErrorProyecto(Exception):
     "Error general del proyecto."
     pass
